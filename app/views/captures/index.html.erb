@@ -1,0 +1,38 @@
+<% if logged_in? %>
+<p id="notice"><%= notice %></p>
+
+<h1>Captures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Imgurl</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @captures.each do |capture| %>
+      <tr>
+        <td><%= capture.title %></td>
+        <td><%= capture.url %></td>
+        <td><%= capture.imgurl %></td>
+<td><a href="<%= capture.imgurl %>" target="_blank"><img src="<%= capture.imgurl %>" width=200></a></td>
+        <td><%= link_to 'Show', capture %></td>
+        <td><%= link_to 'Edit', edit_capture_path(capture) %></td>
+        <td><%= link_to 'Destroy', capture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Capture', new_capture_path %>
+
+<% else %>
+ログインしてください
+<% end %>
