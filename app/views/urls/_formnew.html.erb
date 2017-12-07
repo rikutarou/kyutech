@@ -1,5 +1,5 @@
 <!--  form_with(url: [@page, @url], model: url, local: true) do |form|  -->
-<%= form_with(url: new_page_url_path, model: url, local: true) do |form|  %>
+<%= form_with(url: page_urls_path, model: url, local: true) do |form|  %>
   <% if url.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(url.errors.count, "error") %> prohibited this url from being saved:</h2>
