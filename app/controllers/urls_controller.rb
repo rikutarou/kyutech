@@ -61,9 +61,10 @@ class UrlsController < ApplicationController
   # DELETE /urls/1
   # DELETE /urls/1.json
   def destroy
+    @page = Page.find(params[:page_id])
     @url.destroy
     respond_to do |format|
-      format.html { redirect_to urls_url, notice: 'Url was successfully destroyed.' }
+      format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

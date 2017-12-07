@@ -48,9 +48,9 @@
         <td><%= url.visible %></td>
         <td><%= url.user_id %></td>
         <td><%= url.page_id %></td>
-        <td><%= link_to 'Show', url %></td>
+        <td><%= link_to 'Show', page_url_path(@page, url) %></td>
         <td><%= link_to 'Edit', edit_page_url_path(@page, url) %></td>
-        <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', page_url_path(@page, url), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
