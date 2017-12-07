@@ -22,6 +22,7 @@
       <th>Minute</th>
       <th>Visible</th>
       <th>User</th>
+      <th>Page</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -45,7 +46,8 @@
         <td><%= url.hour %></td>
         <td><%= url.minute %></td>
         <td><%= url.visible %></td>
-        <td><%= url.user %></td>
+        <td><%= url.user_id %></td>
+        <td><%= url.page_id %></td>
         <td><%= link_to 'Show', url %></td>
         <td><%= link_to 'Edit', edit_url_path(url) %></td>
         <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -56,4 +58,5 @@
 
 <br>
 
-<%= link_to 'New Url', new_url_path %>
+<%= link_to 'Back to Page', page_path(@page) %>
+<%= link_to 'Add New Url', new_page_url_path %>

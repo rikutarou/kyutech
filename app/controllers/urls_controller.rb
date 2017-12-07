@@ -5,17 +5,20 @@ class UrlsController < ApplicationController
   # GET /urls
   # GET /urls.json
   def index
-    @urls = Url.all
+    @page = Page.find(params[:page_id])
+    @urls = Url.where(page_id: params[:page_id])
   end
 
   # GET /urls/1
   # GET /urls/1.json
   def show
+    @url = Url.find(params[:id])
   end
 
   # GET /urls/new
   def new
     @url = Url.new
+    @page = Page.find(params[:page_id])
   end
 
   # GET /urls/1/edit
@@ -26,11 +29,11 @@ class UrlsController < ApplicationController
   # POST /urls.json
   def create
     @url = Url.new(url_params)
-
+    @page = Page.find(params[:page_id])
     respond_to do |format|
       if @url.save
         @url.capture # 新規作成したとき、ここで、キャプチャ
-        format.html { redirect_to @url, notice: 'Url was successfully created.' }
+        format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully created.' }
         format.json { render :show, status: :created, location: @url }
       else
         format.html { render :new }
@@ -42,9 +45,10 @@ class UrlsController < ApplicationController
   # PATCH/PUT /urls/1
   # PATCH/PUT /urls/1.json
   def update
+    @page = Page.find(params[:page_id])
     respond_to do |format|
       if @url.update(url_params)
-        format.html { redirect_to @url, notice: 'Url was successfully updated.' }
+        format.html { redirect_to user_urls_url(@user), notice: 'Url was successfully updated.' }
         format.json { render :show, status: :ok, location: @url }
       else
         format.html { render :edit }
@@ -71,6 +75,6 @@ class UrlsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def url_params
-      params.require(:url).permit(:name, :url, :x, :y, :w, :h, :px, :py, :pw, :ph, :zoom, :autoup, :captime, :hour, :minute, :visible, :user_id)
+      params.require(:url).permit(:name, :url, :x, :y, :w, :h, :px, :py, :pw, :ph, :zoom, :autoup, :captime, :hour, :minute, :visible, :user_id, :page_id)
     end
 end

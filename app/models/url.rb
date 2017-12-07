@@ -32,7 +32,7 @@ class Url < ApplicationRecord
          end
           @imgurl = open("https://cutycapt.tobata.asia/link.php?url="+self.url+cut).read
           #print @imgurl
-          @c = Capture.create(name: self.url , imgurl: @imgurl, url: self, w: self.w, h:self.h)
+          @c = Capture.create(imgurl: @imgurl, url: self, w: self.w, h:self.h)
           self.captures << @c    # これで、CaptureをUrlに登録！
           return @imgurl
       end
