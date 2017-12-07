@@ -12,6 +12,7 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
+    @page = Page.find(params[:page_id])
     @url = Url.find(params[:id])
   end
 
@@ -48,7 +49,7 @@ class UrlsController < ApplicationController
     @page = Page.find(params[:page_id])
     respond_to do |format|
       if @url.update(url_params)
-        format.html { redirect_to user_urls_url(@user), notice: 'Url was successfully updated.' }
+        format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully updated.' }
         format.json { render :show, status: :ok, location: @url }
       else
         format.html { render :edit }

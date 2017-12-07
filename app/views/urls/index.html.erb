@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Urls</h1>
+<h1>Urls of Page <%= @page.name %> (page.id = <%= @page.id %>) </h1>
 
 <table>
   <thead>
@@ -49,7 +49,7 @@
         <td><%= url.user_id %></td>
         <td><%= url.page_id %></td>
         <td><%= link_to 'Show', url %></td>
-        <td><%= link_to 'Edit', edit_url_path(url) %></td>
+        <td><%= link_to 'Edit', edit_page_url_path(@page, url) %></td>
         <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
