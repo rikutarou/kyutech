@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207005845) do
+ActiveRecord::Schema.define(version: 20171207020222) do
 
   create_table "captures", force: :cascade do |t|
     t.string "imgurl"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20171207005845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["url_id"], name: "index_captures_on_url_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "name"
+    t.text "mes"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
   create_table "urls", force: :cascade do |t|
@@ -44,6 +53,8 @@ ActiveRecord::Schema.define(version: 20171207005845) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "page_id"
+    t.index ["page_id"], name: "index_urls_on_page_id"
     t.index ["user_id"], name: "index_urls_on_user_id"
   end
 

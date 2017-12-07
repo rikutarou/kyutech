@@ -1,5 +1,6 @@
 class CapturesController < ApplicationController
   before_action :set_capture, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! #これがコントローラに書いてあると、ログイン必須になる
 
   # GET /captures
   # GET /captures.json

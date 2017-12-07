@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user! #これがコントローラに書いてあると、ログイン必須になる
 
   # GET /users
   # GET /users.json

@@ -1,5 +1,6 @@
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! #これがコントローラに書いてあると、ログイン必須になる
 
   # GET /urls
   # GET /urls.json
@@ -28,6 +29,7 @@ class UrlsController < ApplicationController
 
     respond_to do |format|
       if @url.save
+        @url.capture # 新規作成したとき、ここで、キャプチャ
         format.html { redirect_to @url, notice: 'Url was successfully created.' }
         format.json { render :show, status: :created, location: @url }
       else

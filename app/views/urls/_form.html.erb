@@ -93,7 +93,7 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :url_user_id %>
+    <%= form.text_field :user_id, id: :url_user_id, value: current_user.id %>
   </div>
 
   <div class="actions">
