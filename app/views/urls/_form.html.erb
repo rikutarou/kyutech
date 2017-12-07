@@ -1,0 +1,102 @@
+<%= form_with(model: url, local: true) do |form| %>
+  <% if url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :url_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :url_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :x %>
+    <%= form.number_field :x, id: :url_x %>
+  </div>
+
+  <div class="field">
+    <%= form.label :y %>
+    <%= form.number_field :y, id: :url_y %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w %>
+    <%= form.number_field :w, id: :url_w %>
+  </div>
+
+  <div class="field">
+    <%= form.label :h %>
+    <%= form.number_field :h, id: :url_h %>
+  </div>
+
+  <div class="field">
+    <%= form.label :px %>
+    <%= form.number_field :px, id: :url_px %>
+  </div>
+
+  <div class="field">
+    <%= form.label :py %>
+    <%= form.number_field :py, id: :url_py %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pw %>
+    <%= form.number_field :pw, id: :url_pw %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ph %>
+    <%= form.number_field :ph, id: :url_ph %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zoom %>
+    <%= form.number_field :zoom, id: :url_zoom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :autoup %>
+    <%= form.check_box :autoup, id: :url_autoup %>
+  </div>
+
+  <div class="field">
+    <%= form.label :captime %>
+    <%= form.time_select :captime, id: :url_captime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hour %>
+    <%= form.number_field :hour, id: :url_hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :minute %>
+    <%= form.number_field :minute, id: :url_minute %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visible %>
+    <%= form.check_box :visible, id: :url_visible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :url_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

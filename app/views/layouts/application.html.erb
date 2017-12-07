@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Testdevise</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Testdevise</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-
-<% if user_signed_in? %>
-    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-<% end %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<body>
 
 
-    <%= yield %>
-  </body>
+  <% if user_signed_in? #ログインしていたら %>
+  <p style="background: #cff;">
+    <%= link_to "Top", root_path %>
+    Hello, <%= current_user.email %> 
+    <%= link_to "Edit Profile", edit_user_registration_path %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </p>
+  <% else #未ログインなら %>
+  <p style="background: #ffc;">
+    <%= link_to "Top", root_path %>
+    <%= link_to 'Login', new_user_session_path %>
+    <%= link_to 'New User Registration', new_user_registration_path %>
+  </p>
+  <% end %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
+  <%= yield %>
+</body>
 </html>

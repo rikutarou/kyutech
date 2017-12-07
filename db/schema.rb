@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206080811) do
+ActiveRecord::Schema.define(version: 20171207005845) do
+
+  create_table "captures", force: :cascade do |t|
+    t.string "imgurl"
+    t.integer "url_id"
+    t.boolean "star"
+    t.integer "w"
+    t.integer "h"
+    t.integer "zoom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["url_id"], name: "index_captures_on_url_id"
+  end
+
+  create_table "urls", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.integer "x"
+    t.integer "y"
+    t.integer "w"
+    t.integer "h"
+    t.integer "px"
+    t.integer "py"
+    t.integer "pw"
+    t.integer "ph"
+    t.integer "zoom"
+    t.boolean "autoup"
+    t.time "captime"
+    t.integer "hour"
+    t.integer "minute"
+    t.boolean "visible"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_urls_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

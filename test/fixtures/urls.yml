@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  url: MyString
+  x: 1
+  'y': 1
+  w: 1
+  h: 1
+  px: 1
+  py: 1
+  pw: 1
+  ph: 1
+  zoom: 1
+  autoup: false
+  captime: 2017-12-07 09:56:56
+  hour: 1
+  minute: 1
+  visible: false
+  user: one
+
+two:
+  name: MyString
+  url: MyString
+  x: 1
+  'y': 1
+  w: 1
+  h: 1
+  px: 1
+  py: 1
+  pw: 1
+  ph: 1
+  zoom: 1
+  autoup: false
+  captime: 2017-12-07 09:56:56
+  hour: 1
+  minute: 1
+  visible: false
+  user: two

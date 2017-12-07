@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imgurl: MyString
+  url: one
+  star: false
+  w: 1
+  h: 1
+  zoom: 1
+
+two:
+  imgurl: MyString
+  url: two
+  star: false
+  w: 1
+  h: 1
+  zoom: 1

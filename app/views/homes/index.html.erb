@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Home</h1>
 
+<pre>
+<%= current_user.inspect %>
+</pre>
 
-<%= link_to 'New User', new_user_path %>
+<%= user_signed_in? %>
+
+<%= link_to 'Login', new_user_session_path %>
+
+<%= link_to 'New User Registration', new_user_registration_path %>
