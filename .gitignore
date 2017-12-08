@@ -20,4 +20,6 @@ tmp
 node_modules
 yarn-error.log
 
+latest.dump
+
 .byebug_history
