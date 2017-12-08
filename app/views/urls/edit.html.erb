@@ -1,7 +1,133 @@
 <h1>Editing Url</h1>
 
+<script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
+
+<%= image_tag @url.first.imgurl, :class =>"dnd" %>
 <!-- form_with(url: page_url_path, model: @url, local: true) do |form| -->
 <%= render 'form', url: @url %>
 
 <%= link_to 'Show', @url %> |
 <%= link_to 'Back', urls_path %>
+
+
+
+<script type="text/javascript">
+      var x1,x2,y1,y2,pressed=false;
+
+      $(document).ready(function(){
+//        console.log("enabled JQuery");
+        $("img.dnd").mousedown(md).mousemove(mm).mouseup(mu);
+        $(window).keydown(kd).keyup(ku);
+      });
+
+      function md(e){
+        e.preventDefault();
+        $('#current').attr({id: ''});
+        box = $('<div style="border:4px #f0f solid;position:fixed;">').hide();
+        $(document.body).append(box);
+        x1 = e.clientX;
+        y1 = e.clientY;
+        pressed = true;
+        box.attr({id: 'current' }).css({
+          top: e.clientY,
+          left: e.clientX
+        }).fadeIn(400).mousemove(mm).mouseup(mu);
+        return false;
+      }
+      function mm(e){
+        e.preventDefault();
+        if (pressed){
+          $("#current").css({
+            width:Math.abs(e.clientX - x1-6), //clients
+            height:Math.abs(e.clientY - y1-6) //clients
+          });
+        }
+        x2 = e.clientX;
+        y2 = e.clientY;
+        return false;
+      }
+      function mu(e){
+        e.preventDefault();
+        if (!pressed) {
+          $("#current").remove();
+          return true;
+        }
+        pressed = false;
+        if (x2<=x1 || y2<=y1) {
+          $("#current").remove();
+          return true;
+        }
+
+		var w = x2-x1;
+        var h = y2-y1;
+        var imgoffset = $("img.dnd").offset();
+        var x = Math.round(x1 - imgoffset.left);
+        var y = Math.round(y1 - imgoffset.top);
+        var yn = window.confirm("Selected area : "+x+" "+y+" "+w+" "+h+"\n\nReally crop??");
+        if (yn){
+          $('#url_x').val(x);
+          $('#url_y').val(y);
+          $('#url_w').val(w);
+          $('#url_h').val(h);
+          $('#urleditform').submit();
+          // alert("Crop!");
+          // $.get("https://ist.mns.kyutech.ac.jp/swweb/miuramo/dragimage/update.php",{ x: x, y: y, w: w, h:h},
+//           function(data){ //送信に成功したら
+// //              imgreload(rowid,prefix+fn);
+//             console.log(data);
+//             $("#current").remove();
+//             alert("Jump to another page!!");
+//             window.location = "http://ist.mns.kyutech.ac.jp/";
+//           });
+
+        } else {
+          $("#current").remove();
+        }
+
+        return false;
+      }
+      function ku(e){
+      }
+      function kd(e){
+        console.log("e.keyCode = "+e.keyCode);
+        if (pressed /*&& e.ctrlKey*/){
+          if (e.keyCode == 27){ //ESC
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 82){ //r
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 67){ //c
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 68){ //d
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 77){ //p
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 79){ //o
+            pressed = false;
+
+          } else if (e.keyCode == 80){ //p
+            pressed = false;
+            $("#current").remove();
+          } else if (e.keyCode == 83){ //s
+            pressed = false;
+            $("#current").remove();
+
+          } else if (e.keyCode == 72){ //h
+            pressed = false;
+            $("#current").remove();
+
+          } else if (e.keyCode == 90){ //z u
+            pressed = false;
+            $("#current").remove();
+          }
+        }
+      }
+    </script>

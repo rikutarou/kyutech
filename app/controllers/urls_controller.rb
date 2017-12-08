@@ -24,6 +24,7 @@ class UrlsController < ApplicationController
 
   # GET /urls/1/edit
   def edit
+    @url = Url.find(params[:id])
   end
 
   # POST /urls
@@ -34,7 +35,7 @@ class UrlsController < ApplicationController
     respond_to do |format|
       if @url.save
         @url.capture # 新規作成したとき、ここで、キャプチャ
-        format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully created.' }
+        format.html { redirect_to edit_page_url_url(@page,@url), notice: 'Url was successfully created.' }
         format.json { render :show, status: :created, location: @url }
       else
         format.html { render :new }
