@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     end
   end
   resources :captures
-  resources :urls
+  resources :urls do
+    collection do
+      get :allcapture
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   resources :users

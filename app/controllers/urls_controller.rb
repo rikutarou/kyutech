@@ -6,7 +6,13 @@ class UrlsController < ApplicationController
   def capture
     @url = Url.find(params[:id])
     @url.capture
-    redirect_to page_urls_url(params[:page_id]), notice: 'New capture was successfully created.' 
+    redirect_to page_urls_url(params[:page_id]), notice: 'New capture was successfully created.'
+  end
+
+  def allcapture
+    Url.all.each do |url|
+      url.capture
+    end
   end
 
   # GET /urls

@@ -14,11 +14,15 @@ class Url < ApplicationRecord
   end
 
   def first
-    if (!self.url.nil? && self.url.length > 2 && self.captures.size==0) then capture end
+    if (!self.url.nil? && self.url.length > 2 && self.captures.size==0) then
+       capture
+     end
       return self.captures.first
   end
   def last
-    if (!self.url.nil? && self.url.length > 2 && self.captures.size==0) then capture end
+    if (!self.url.nil? && self.url.length > 2 && self.captures.size==0) then
+       capture
+     end
       return self.captures.last
   end
 
