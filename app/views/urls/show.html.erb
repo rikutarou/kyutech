@@ -30,7 +30,7 @@
   <%= @url.h %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Px:</strong>
   <%= @url.px %>
 </p>
@@ -88,7 +88,13 @@
 <p>
   <strong>Page:</strong>
   <%= @url.page_id %>
-</p>
+</p> -->
+
+<%= link_to 'Edit', edit_page_url_path(@url) %> |
+<%= link_to 'Back', page_urls_path %>
+
+<hr>
+<h2>Captures of the URL</h2>
 
 <table>
   <thead>
@@ -113,13 +119,9 @@
         <td><%= capture.h %></td>
         <td><%= capture.zoom %></td>
         <td><%= link_to 'Show', capture %></td>
-        <td><%= link_to 'Edit', edit_capture_path(capture) %></td>
+        <!-- <td><%= link_to 'Edit', edit_capture_path(capture) %></td> -->
         <td><%= link_to 'Destroy', capture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
-<%= link_to 'Edit', edit_url_path(@url) %> |
-<%= link_to 'Back', urls_path %>

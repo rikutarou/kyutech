@@ -5,6 +5,10 @@ Rails.application.routes.draw do
         get :capture
       end
     end
+
+    member do
+      get :allcapture
+    end
   end
   resources :captures
   resources :urls do

@@ -17,6 +17,14 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
+  def allcapture
+    @page = Page.find(params[:id])
+    @page.urls.each do |url|
+      url.capture
+    end
+    redirect_to page_url
+  end
+
   # GET /pages/new
   def new
     @page = Page.new
