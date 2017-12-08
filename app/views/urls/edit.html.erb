@@ -65,8 +65,11 @@
 		var w = x2-x1;
         var h = y2-y1;
         var imgoffset = $("img.dnd").offset();
-        var x = Math.round(x1 - imgoffset.left);
-        var y = Math.round(y1 - imgoffset.top);
+        var scrollTop = window.pageYOffset;
+        var scrollLeft = window.pageXOffset;
+        // alert(y1+" "+imgoffset.top+" "+scrollTop);
+        var x = Math.round(x1 - imgoffset.left + scrollLeft);
+        var y = Math.round(y1 - imgoffset.top + scrollTop);
         var yn = window.confirm("Selected area : "+x+" "+y+" "+w+" "+h+"\n\nReally crop??");
         if (yn){
           $('#url_x').val(x);
