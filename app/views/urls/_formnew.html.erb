@@ -22,7 +22,7 @@
     <%= form.text_field :url, id: :url_url %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :x %>
     <%= form.number_field :x, id: :url_x %>
   </div>
@@ -90,17 +90,17 @@
   <div class="field">
     <%= form.label :visible %>
     <%= form.check_box :visible, id: :url_visible %>
-  </div>
+  </div> -->
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :url_user_id, value: current_user.id %>
-  </div>
+  <!-- <div class="field">
+    <%= form.label :user_id %> -->
+    <%= form.hidden_field :user_id, id: :url_user_id, value: current_user.id %>
+  <!-- </div> -->
 
-  <div class="field">
-    <%= form.label :page_id %>
-    <%= form.text_field :page_id, id: :url_page_id, value: params[:page_id] %>
-  </div>
+  <!-- <div class="field">
+    <%= form.label :page_id %> -->
+    <%= form.hidden_field :page_id, id: :url_page_id, value: params[:page_id] %>
+  <!-- </div> -->
 
   <div class="actions">
     <%= form.submit %>
