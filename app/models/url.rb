@@ -25,7 +25,7 @@ class Url < ApplicationRecord
   def capture
       require "open-uri"
       if (!self.url.nil? && self.url.length > 2) then
-         if (self.w != 0 && self.h != 0) then
+         if (self.w.nil? && self.h.nil? ) then
            cut = ""
          else
            cut = "&x="+self.x.to_s+"&y="+self.y.to_s+"&w="+self.w.to_s+"&h="+self.h.to_s

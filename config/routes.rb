@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :pages do
-    resources :urls
+    resources :urls do
+      member do
+        get :capture
+      end
+    end
   end
   resources :captures
   resources :urls

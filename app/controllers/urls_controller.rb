@@ -2,6 +2,13 @@ class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! #これがコントローラに書いてあると、ログイン必須になる
 
+  # GET /urls/1/capture
+  def capture
+    @url = Url.find(params[:id])
+    @url.capture
+    redirect_to page_urls_url(params[:page_id]), notice: 'New capture was successfully created.' 
+  end
+
   # GET /urls
   # GET /urls.json
   def index
