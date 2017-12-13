@@ -62,9 +62,14 @@
 
 
         if (x2 != x1) {
-        console.log(e.currentTarget.id+" "+x2+" "+y2);
         var uuu = filterById(urls, e.currentTarget.id.split("_")[1]);
-        console.log( uuu.captures.length );
+        var unitw = uuu.w / uuu.captures.length;
+        var imgidx = Math.floor(x2 / unitw);
+        console.log(e.currentTarget.id+" "+x2+" "+uuu.w);
+        console.log( "imgidx="+imgidx+"  "+uuu.captures.length + " "+uuu.w );
+        console.log(uuu.captures[imgidx]);
+        $('#'+e.currentTarget.id).attr('src', uuu.captures[imgidx].imgurl);
+
       }
       x1 = x2; y1 = y2;
 //        console.log(x2+" "+y2);
