@@ -5,5 +5,8 @@ class TimerCaptureJob < ApplicationJob
     Page.all.each do |page|
       page.capturebytimecheck
     end
+
+    # Next schedule
+    TimerCaptureJob.set(wait: 60.minute).perform_later
   end
 end
