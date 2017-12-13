@@ -15,6 +15,11 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     # @page = Page.find(params[:id]) # set_page
+    respond_to do |format|
+      format.html {  }
+#      format.json { render :json => @page.to_json( :include => [:urls ]  ) }
+      format.json { render :json => @page.as_json( include: { urls: { only: [:id, :w] , include: { captures: { only: [:imgurl, :created_at] }}}} ) }
+    end
   end
 
   def allcapture

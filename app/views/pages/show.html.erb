@@ -1,9 +1,14 @@
+<script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
 <p id="notice"><%= notice %></p>
 
 
 <% @page.urls.each do |url| %>
 
-<%= image_tag url.last.imgurl %>
+<%= image_tag url.last.imgurl, :class =>"hov", :id => "imgid_"+url.id.to_s %>
 <br>
 <%= url.url %> <%= url.last.created_at.in_time_zone('Tokyo') %>
 <hr>
@@ -31,3 +36,38 @@
 
 <%= link_to 'List URL', page_urls_path(@page) %>
 <%= link_to 'Add URL', new_page_url_path(@page) %>
+
+<script type="text/javascript">
+      var x1,x2,y1,y2,pressed=false;
+      var urls;
+
+      $(document).ready(function(){
+//        console.log("enabled JQuery");
+        $("img.hov").mousemove(mm);
+        $.getJSON("<%= page_path(@page) %>.json", function(data){
+          urls = data.urls;
+        });
+      });
+      function filterById(jsonObject, id) {return jsonObject.filter(function(jsonObject) {return (jsonObject['id'] == id);})[0];}
+
+      function mm(e){
+        e.preventDefault();
+        x2 = e.clientX;
+        y2 = e.clientY;
+        var imgoffset = $("#"+e.currentTarget.id).offset();
+        var scrollTop = window.pageYOffset;
+        var scrollLeft = window.pageXOffset;
+        x2 = Math.round(x2 - imgoffset.left + scrollLeft);
+        y2 = Math.round(y2 - imgoffset.top + scrollTop);
+
+
+        if (x2 != x1) {
+        console.log(e.currentTarget.id+" "+x2+" "+y2);
+        var uuu = filterById(urls, e.currentTarget.id.split("_")[1]);
+        console.log( uuu.captures.length );
+      }
+      x1 = x2; y1 = y2;
+//        console.log(x2+" "+y2);
+        return false;
+      }
+    </script>
