@@ -11,7 +11,7 @@ class Page < ApplicationRecord
       t = Time.new.in_time_zone('Tokyo').hour
       p t
       if (range.include?(t)) then
-        self.delay.captureall
+        self.captureall
       else
         p "Not in time "+t.to_s+" "+self.uphour
       end
