@@ -6,6 +6,10 @@ class TimerCaptureJob < ApplicationJob
       page.capturebytimecheck
     end
 
+    Capture.all.each do |c|
+      c.md5size
+    end
+
     # Next schedule
 #    TimerCaptureJob.set(wait: 60.minute).perform_later
     nt = (Time.now+3600)
