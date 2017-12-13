@@ -3,7 +3,7 @@ class TimerCaptureJob < ApplicationJob
 
   def perform(*args)
     Page.all.each do |page|
-#      page.capturebytimecheck
+      page.capturebytimecheck
     end
 
     # Next schedule
