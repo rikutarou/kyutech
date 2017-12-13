@@ -10,7 +10,7 @@
 
 <%= image_tag url.last.imgurl, :class =>"hov", :id => "imgid_"+url.id.to_s %>
 <br>
-<%= url.url %> <span id="dtimgid_<%= url.id.to_s %>"><%= url.last.created_at.in_time_zone('Tokyo') %></span>
+<%= url.url %> <span id="dtimgid_<%= url.id.to_s %>"><%= url.last.created_at.in_time_zone('Tokyo').to_s.slice(0,19) %></span>
 <hr>
 <% end %>
 
@@ -63,8 +63,12 @@
 
         if (x2 != x1) {
         var uuu = filterById(urls, e.currentTarget.id.split("_")[1]);
-        var unitw = uuu.w / uuu.captures.length;
-        var imgidx = Math.floor(x2 / unitw);
+        var len = uuu.captures.length-1;
+        var offset = 1;
+        var maximage = 30;
+        if (len > maximage) { offset = len - maximage; len = maximage; }
+        var unitw = uuu.w / len; // skip 0(original, not cropped)
+        var imgidx = Math.floor(x2 / unitw) + offset; // skip 0(original, not cropped)
         // console.log(e.currentTarget.id+" "+x2+" "+uuu.w);
         // console.log( "imgidx="+imgidx+"  "+uuu.captures.length + " "+uuu.w );
 //        console.log(uuu.captures[imgidx]);
