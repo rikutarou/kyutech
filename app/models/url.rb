@@ -1,6 +1,6 @@
 class Url < ApplicationRecord
   belongs_to :page
-  has_many :captures, :dependent => :destroy
+  has_many :captures, ->{order('captures.created_at asc') }, :dependent => :destroy
 
   before_validation :force_add_http
   # かならず、http:// または https:// ではじまるようにする。ついていなければ着ける
