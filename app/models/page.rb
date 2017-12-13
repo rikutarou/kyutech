@@ -1,6 +1,6 @@
 class Page < ApplicationRecord
   belongs_to :user
-  has_many :urls, :dependent => :destroy
+  has_many :urls, ->{order('urls.created_at asc') }, :dependent => :destroy
 
   def capturebytimecheck
     #    puts self.uphour
