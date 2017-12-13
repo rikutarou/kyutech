@@ -6,6 +6,11 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <script
+              src="https://code.jquery.com/jquery-1.12.4.min.js"
+              integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+              crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
   <% if user_signed_in? #ログインしていたら %>
   <p style="background: #cff;">
     <%= link_to "Top", root_path %>
-    Hello, <%= current_user.email %> 
+    Hello, <%= current_user.email %>
     <%= link_to "Edit Profile", edit_user_registration_path %>
     <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   </p>
