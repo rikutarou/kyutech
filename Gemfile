@@ -58,3 +58,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem "delayed_job"
+gem "delayed_job_active_record"
+# デプロイ先でデーモンとして動かすのに必要
+gem "daemons"

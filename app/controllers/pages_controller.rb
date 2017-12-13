@@ -19,9 +19,11 @@ class PagesController < ApplicationController
 
   def allcapture
     @page = Page.find(params[:id])
-    @page.urls.each do |url|
-      url.capture
-    end
+    @page.captureall # capturebytimecheck
+    # @page.captureall
+    # @page.urls.each do |url|
+    #   url.capture
+    # end
     redirect_to page_url
   end
 
