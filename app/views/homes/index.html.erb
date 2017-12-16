@@ -1,28 +1,19 @@
-<h1>Home</h1>
-
-<pre>
-<%= current_user.inspect %>
-</pre>
-
-<%= user_signed_in? %>
-
-
 <% if user_signed_in? #ログインしていたら %>
 
 <% if !@pages.nil? %>
 <h2>Pages</h2>
 <ul>
   <% @pages.each do |page| %>
-<li>
-        <%= link_to page.name, page %>
-        <% if (page.uphour.include?("-")) then %>
-        (update scheduled at every
-        <%= page.uphour %> hours)
-        <% end %>
-        <%= link_to "Edit", edit_page_path(page) %>
-        <%= link_to "Add URL", new_page_url_path(page) %>
-        <%= link_to "AllCapture!!", allcapture_page_path(page) %>
-      </li>
+  <li>
+    <%= link_to page.name, page %>
+    <% if (page.uphour.include?("-")) then %>
+    (update scheduled at every
+    <%= page.uphour %> hours)
+    <% end %>
+    <%= link_to "Edit", edit_page_path(page) %>
+    <%= link_to "Add URL", new_page_url_path(page) %>
+    <%= link_to "AllCapture!!", allcapture_page_path(page) %>
+  </li>
   <% end %>
 </ul>
 <% end %>
@@ -35,14 +26,13 @@
   <%= link_to "New URL", new_url_path %> -->
 </p>
 <% else #未ログインなら %>
-<p style="background: #ffc;">
-  <%= link_to "Top", root_path %>
-  <%= link_to 'Login', new_user_session_path %>
-  <%= link_to 'New User Registration', new_user_registration_path %>
-</p>
+<div class="center jumbotron">
+  <h1>きりはりクン</h1>
+
+  <h2>
+    きりはりクンは、あなたの知りたい多くの情報を一度に得ることを可能にします。
+  </h2>
+
+  <%= link_to "今すぐ始める", '#', class: "btn btn-lg btn-primary active" %>
+</div>
 <% end %>
-
-
-<%= link_to 'Login', new_user_session_path %>
-
-<%= link_to 'New User Registration', new_user_registration_path %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Testdevise</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,24 +17,17 @@
 
 
   <% if user_signed_in? #ログインしていたら %>
-  <p style="background: #cff;">
-    <%= link_to "Top", root_path %>
-    Hello, <%= current_user.email %>
-    <%= link_to "Edit Profile", edit_user_registration_path %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  </p>
+    <%= render 'layouts/login_user_header' %>
   <% else #未ログインなら %>
-  <p style="background: #ffc;">
-    <%= link_to "Top", root_path %>
-    <%= link_to 'Login', new_user_session_path %>
-    <%= link_to 'New User Registration', new_user_registration_path %>
-  </p>
+    <%= render 'layouts/no_login_user_header' %>
   <% end %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-
+  <div class="container">
   <%= yield %>
+  <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>
