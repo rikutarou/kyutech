@@ -1,38 +1,31 @@
-
-
 <p id="notice"><%= notice %></p>
-
-
 <% @page.urls.each do |url| %>
-
 <%= image_tag url.last.imgurl, :class =>"hov", :id => "imgid_"+url.id.to_s %>
 <br>
 <%= url.url %> <span id="dtimgid_<%= url.id.to_s %>"><%= url.last.created_at.in_time_zone('Tokyo').to_s.slice(0,19) %></span>
 <hr>
 <% end %>
 
-<hr>
-
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @page.name %>
 </p>
 
 <p>
-  <strong>Mes:</strong>
+  <strong>メモ:</strong>
   <%= @page.mes %>
 </p>
 
-<p>
+<!-- <p>
   <strong>User:</strong>
   <%= @page.user %>
-</p>
+</p> -->
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %> | |
+<%= link_to 'ページの設定', edit_page_path(@page) %> |
+<%= link_to 'ページ一覧に戻る', pages_path %> | |
 
-<%= link_to 'List URL', page_urls_path(@page) %>
-<%= link_to 'Add URL', new_page_url_path(@page) %>
+<%= link_to 'URLリスト', page_urls_path(@page) %> |
+<%= link_to 'URLを追加', new_page_url_path(@page) %>
 
 <script type="text/javascript">
       var x1,x2,y1,y2,pressed=false;

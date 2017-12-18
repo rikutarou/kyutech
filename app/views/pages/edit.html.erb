@@ -1,6 +1,7 @@
-<h1>Editing Page</h1>
+<% provide(:title, 'ページの編集') %>
+<h1>ページの編集</h1>
 
 <%= render 'form', page: @page %>
 
-<%= link_to 'Show', @page %> |
-<%= link_to 'Back', pages_path %>
+<%= link_to '閲覧', @page %> |
+<%= link_to '戻る', pages_path %>

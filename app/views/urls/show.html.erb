@@ -1,32 +1,34 @@
 <p id="notice"><%= notice %></p>
+<% provide(:title, '画像の詳細') %>
+<h1>画像の詳細</h1>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @url.name %>
 </p>
 
 <p>
-  <strong>Url:</strong>
+  <strong>URL:</strong>
   <%= @url.url %>
 </p>
 
 <p>
-  <strong>X:</strong>
+  <strong>X座標:</strong>
   <%= @url.x %>
 </p>
 
 <p>
-  <strong>Y:</strong>
+  <strong>Y座標:</strong>
   <%= @url.y %>
 </p>
 
 <p>
-  <strong>W:</strong>
+  <strong>幅:</strong>
   <%= @url.w %>
 </p>
 
 <p>
-  <strong>H:</strong>
+  <strong>高さ:</strong>
   <%= @url.h %>
 </p>
 
@@ -90,24 +92,23 @@
   <%= @url.page_id %>
 </p> -->
 
-<%= link_to 'Edit', edit_page_url_path(@url) %> |
-<%= link_to 'Back', page_urls_path %>
+
 
 <hr>
 <h2>Captures of the URL</h2>
 
-<table>
+<table class="table" >
   <thead>
     <tr>
-      <th>Imgurl</th>
-      <th>Url_ID</th>
+      <th>画像のURL</th>
+      <!-- <th>Url_ID</th>
       <th>Star</th>
       <th>W</th>
       <th>H</th>
       <th>Md5</th>
       <th>fsize</th>
-      <th>Zoom</th>
-      <th colspan="3"></th>
+      <th>Zoom</th> -->
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -115,17 +116,21 @@
     <% @url.captures.each do |capture| %>
       <tr>
         <td><%= capture.imgurl %></td>
-        <td><%= capture.url_id %></td>
+        <!-- <td><%= capture.url_id %></td>
         <td><%= capture.star %></td>
         <td><%= capture.w %></td>
         <td><%= capture.h %></td>
         <td><%= capture.md5 %></td>
-        <td><%= capture.fsize %></td>
+        <td><%= capture.fsize %></td> -->
         <td><%= capture.zoom %></td>
-        <td><%= link_to 'Show', capture %></td>
+        <td><%= link_to '閲覧', capture %></td>
         <!-- <td><%= link_to 'Edit', edit_capture_path(capture) %></td> -->
-        <td><%= link_to 'Destroy', capture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', capture, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<%= link_to '編集', edit_page_url_path(@url) %> |
+<%= link_to '戻る', page_urls_path %>

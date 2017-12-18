@@ -1,8 +1,8 @@
-<% if user_signed_in? #ログインしていたら %>
+  <% if user_signed_in? #ログインしていたら %>
 
 <% if !@pages.nil? %>
-<h2>Pages</h2>
-<ul>
+<h1>ホーム</h1>
+<!-- <ul>
   <% @pages.each do |page| %>
   <li>
     <%= link_to page.name, page %>
@@ -10,21 +10,46 @@
     (update scheduled at every
     <%= page.uphour %> hours)
     <% end %>
-    <%= link_to "Edit", edit_page_path(page) %>
-    <%= link_to "Add URL", new_page_url_path(page) %>
-    <%= link_to "AllCapture!!", allcapture_page_path(page) %>
+    <%= link_to "編集", edit_page_path(page) %>
+    <%= link_to "URLを追加する", new_page_url_path(page) %>
+    <%= link_to "全ての更新", allcapture_page_path(page) %>
   </li>
   <% end %>
 </ul>
-<% end %>
-
-<p style="background: #cff;">
-  <%= link_to "List Page", pages_path %>
-  <%= link_to "New Page", new_page_path %>
-
+<% end %> -->
   <!-- <%= link_to "List URL", urls_path %>
   <%= link_to "New URL", new_url_path %> -->
 </p>
+
+<%= link_to '新しいページを作成', new_page_path, class:"btn btn-default btn-lg btn-block"  %><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>メモ</th>
+      <th>更新時間帯</th>
+      <th colspan="<2></2>"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.name %></td>
+        <td><%= page.mes %></td>
+        <td><% if (page.uphour.include?("-")) then %>
+              <%= page.uphour %>
+            <% end %></td>
+        <td><%= link_to '閲覧', page, class:"btn btn-default btn-sm"  %></td>
+        <td><%= link_to "全ての画像を更新", allcapture_page_path(page), class:"btn btn-default btn-sm" %><td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+
+
 <% else #未ログインなら %>
 <div class="center jumbotron">
   <h1>きりはりクン</h1>

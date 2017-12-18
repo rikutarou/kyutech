@@ -1,5 +1,6 @@
-<h1>New Page</h1>
+<% provide(:title, 'ページの新規作成') %>
+<h1>ページの新規作成</h1>
 
 <%= render 'form', page: @page %>
 
-<%= link_to 'Back', pages_path %>
+<%= link_to '戻る', pages_path %>
