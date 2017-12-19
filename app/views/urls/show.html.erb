@@ -95,37 +95,21 @@
 
 
 <hr>
-<h2>Captures of the URL</h2>
+
 
 <table class="table" >
   <thead>
     <tr>
-      <th>画像のURL</th>
-      <!-- <th>Url_ID</th>
-      <th>Star</th>
-      <th>W</th>
-      <th>H</th>
-      <th>Md5</th>
-      <th>fsize</th>
-      <th>Zoom</th> -->
-      <th colspan="2"></th>
+      <th>過去の画像</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @url.captures.each do |capture| %>
       <tr>
-        <td><%= capture.imgurl %></td>
-        <!-- <td><%= capture.url_id %></td>
-        <td><%= capture.star %></td>
-        <td><%= capture.w %></td>
-        <td><%= capture.h %></td>
-        <td><%= capture.md5 %></td>
-        <td><%= capture.fsize %></td> -->
-        <td><%= capture.zoom %></td>
-        <td><%= link_to '閲覧', capture %></td>
-        <!-- <td><%= link_to 'Edit', edit_capture_path(capture) %></td> -->
-        <td><%= link_to '削除', capture, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><img src="<%= capture.imgurl %>" height="100"></td>
+        <td><%= link_to '削除', capture, method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-default btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>

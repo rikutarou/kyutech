@@ -48,7 +48,7 @@ class UrlsController < ApplicationController
     respond_to do |format|
       if @url.save
         @url.capture # 新規作成したとき、ここで、キャプチャ
-        format.html { redirect_to edit_page_url_url(@page,@url), notice: 'Url was successfully created.' }
+        format.html { redirect_to edit_page_url_url(@page,@url), notice: 'URLを追加しました。' }
         format.json { render :show, status: :created, location: @url }
       else
         format.html { render :new }
@@ -63,7 +63,8 @@ class UrlsController < ApplicationController
     @page = Page.find(params[:page_id])
     respond_to do |format|
       if @url.update(url_params)
-        format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully updated.' }
+        @url.capture
+        format.html { redirect_to page_urls_url(@page), notice: 'URLを更新をしました。' }
         format.json { render :show, status: :ok, location: @url }
       else
         format.html { render :edit }
@@ -78,7 +79,7 @@ class UrlsController < ApplicationController
     @page = Page.find(params[:page_id])
     @url.destroy
     respond_to do |format|
-      format.html { redirect_to page_urls_url(@page), notice: 'Url was successfully destroyed.' }
+      format.html { redirect_to page_urls_url(@page), notice: 'URLを削除しました。' }
       format.json { head :no_content }
     end
   end

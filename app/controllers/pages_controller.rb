@@ -48,7 +48,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.html { redirect_to @page, notice: '新しいページを作成しました。' }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to root_path, notice: 'Page was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'ページを更新しました。' }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to pages_url, notice: 'ページを削除しました。' }
       format.json { head :no_content }
     end
   end

@@ -38,7 +38,7 @@
         <td><%= page.name %></td>
         <td><%= page.mes %></td>
         <td><% if (page.uphour.include?("-")) then %>
-              <%= page.uphour %>
+              <%= page.uphour %>時
             <% end %></td>
         <td><%= link_to '閲覧', page, class:"btn btn-default btn-sm"  %></td>
         <td><%= link_to "画像を更新", allcapture_page_path(page), class:"btn btn-default btn-sm" %></td>

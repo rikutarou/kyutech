@@ -7,16 +7,15 @@
     <tr>
       <th>名前</th>
       <th>メモ</th>
-      <th colspan="4"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= link_to page.name, page %></td>
+        <td><a herf="google.co.jp"><%= link_to page.name, page %></a></td>
         <td><%= page.mes %></td>
-        <td align="center"><%= link_to '閲覧', page, class:"btn btn-default btn-sm" %></td>
         <td align="center"><%= link_to '設定', edit_page_path(page), class:"btn btn-default btn-sm" %></td>
         <td align="center"><%= link_to '削除', page, method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-default btn-sm" %></td>
         <td align="center"><%= link_to "URLを追加", new_page_url_path(page), class:"btn btn-default btn-sm" %></td>
