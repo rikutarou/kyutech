@@ -5,4 +5,4 @@
 一つのページで自分の欲しい情報を一気に得ることを可能にするWebアプリです。
 
 ## リンク
-[Heroku](http://www.cs.tsukuba.ac.jp/enPiT/)
+*[Heroku](https://kiriharikun.herokuapp.com)
