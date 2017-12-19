@@ -1,24 +1,9 @@
-# README
+# きりはりクン
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは、enPiT BizAppの九州工業大学チームによるプロダクトです。   
+[*enPiT BizApp*](http://www.cs.tsukuba.ac.jp/enPiT/)
 
-Things you may want to cover:
 
-* Ruby version
+## リンク
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[*Heroku*](http://www.cs.tsukuba.ac.jp/enPiT/)
